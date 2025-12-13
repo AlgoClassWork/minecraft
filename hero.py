@@ -37,7 +37,9 @@ class Hero():
     def forward(self):
         angle = self.hero.getH() % 360
         if angle <= 22 or angle >= 337:
-            self.hero.setY() += 1
+            cord_y = self.hero.getY()
+            cord_y += 1
+            self.hero.setY(cord_y)
 
     def accept_events(self):
         base.accept('c', self.changeView)
