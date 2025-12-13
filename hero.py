@@ -34,8 +34,8 @@ class Hero():
     def turn_right(self):
         self.hero.setH( (self.hero.getH() - 5) % 360 )
 
-    def forward(self):
-        angle = self.hero.getH() % 360
+    def move(self, dir):
+        angle = (self.hero.getH() % 360) + dir
         hero_x = self.hero.getX()
         hero_y = self.hero.getY()
         
@@ -63,15 +63,23 @@ class Hero():
         self.hero.setX(hero_x)
         self.hero.setY(hero_y)
 
+    def forward(self):
+        self.move(0)
+
+    def back(self):
+        self.move(180)
 
     def accept_events(self):
         base.accept('c', self.changeView)
 
-        base.accept('n', self.turn_left)
-        base.accept('n' + '-repeat', self.turn_left)
+        base.accept('a', self.turn_left)
+        base.accept('a' + '-repeat', self.turn_left)
 
-        base.accept('m', self.turn_right)
-        base.accept('m' + '-repeat', self.turn_right)
+        base.accept('d', self.turn_right)
+        base.accept('d' + '-repeat', self.turn_right)
 
         base.accept('w', self.forward)
         base.accept('w' + '-repeat', self.forward)
+
+        base.accept('s', self.back)
+        base.accept('s' + '-repeat', self.back)
