@@ -29,4 +29,4 @@ class Hero():
             self.cameraBind()
 
     def accept_events(self):
-        base.accept(key_switch_camera, self.changeView)
+        base.accept('c', self.changeView)
