@@ -34,6 +34,11 @@ class Hero():
     def turn_right(self):
         self.hero.setH( (self.hero.getH() - 5) % 360 )
 
+    def forward(self):
+        angle = self.hero.getH() % 360
+        if angle <= 22 or angle >= 337:
+            self.hero.setY() += 1
+
     def accept_events(self):
         base.accept('c', self.changeView)
 
@@ -42,3 +47,6 @@ class Hero():
 
         base.accept('m', self.turn_right)
         base.accept('m' + '-repeat', self.turn_right)
+
+        base.accept('w', self.forward)
+        base.accept('w' + '-repeat', self.forward)
