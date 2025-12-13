@@ -49,6 +49,16 @@ class Hero():
         elif angle < 157:
             hero_x -= 1
             hero_y -= 1
+        elif angle < 202:
+            hero_y -= 1
+        elif angle < 247:
+            hero_x += 1
+            hero_y -= 1
+        elif angle < 292:
+            hero_x += 1
+        else:
+            hero_x += 1
+            hero_y += 1
 
         self.hero.setX(hero_x)
         self.hero.setY(hero_y)
