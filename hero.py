@@ -77,6 +77,13 @@ class Hero():
         self.hero.setX(self.hero.getX() + dx)
         self.hero.setY(self.hero.getY() + dy)
 
+    def back(self):
+        angle = self.hero.getH() + 180
+        dx, dy = self.check_dir(angle)
+
+        self.hero.setX(self.hero.getX() + dx)
+        self.hero.setY(self.hero.getY() + dy)
+
     def accept_events(self):
         base.accept(key_switch_camera, self.changeView)
 
@@ -88,3 +95,7 @@ class Hero():
 
         base.accept(key_forward, self.forward)
         base.accept(key_forward + '-repeat', self.forward)
+
+        base.accept(key_back, self.back)
+        base.accept(key_back + '-repeat', self.back)
+
