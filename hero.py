@@ -153,6 +153,12 @@ class Hero():
        if self.mode:
            self.hero.setZ( self.hero.getZ() - 1 )
 
+   def changeMode(self):
+       if self.mode:
+           self.mode = False
+       else:
+           self.mode = True
+
    def accept_events(self):
        base.accept(key_turn_left, self.turn_left)
        base.accept(key_turn_left + '-repeat', self.turn_left)
@@ -175,3 +181,4 @@ class Hero():
        base.accept(key_down + '-repeat', self.down)
 
        base.accept(key_switch_camera, self.changeView)
+       base.accept(key_switch_mode, self.changeMode)
