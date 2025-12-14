@@ -71,7 +71,7 @@ class Mapmanager:
         return x, y
     
     def findBlocks(self, pos):
-        return self.land.findALLMatches('=at=', str(pos))
+        return self.land.findAllMatches('=at=' + str(pos))
     
     def isEmpty(self, pos):
         blocks = self.findBlocks(pos)
