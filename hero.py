@@ -111,23 +111,23 @@ class Hero:
         Угол 0 → движение по -Y, 90 → +X, 180 → +Y, 270 → -X
         """
         if 0 <= angle <= 20:
-            return (0, -1)
-        elif angle <= 65:
-            return (1, -1)
-        elif angle <= 110:
-            return (1, 0)
-        elif angle <= 155:
-            return (1, 1)
-        elif angle <= 200:
             return (0, 1)
-        elif angle <= 245:
+        elif angle <= 65:
             return (-1, 1)
-        elif angle <= 290:
+        elif angle <= 110:
             return (-1, 0)
-        elif angle <= 335:
+        elif angle <= 155:
             return (-1, -1)
-        else:
+        elif angle <= 200:
             return (0, -1)
+        elif angle <= 245:
+            return (1, -1)
+        elif angle <= 290:
+            return (1, 0)
+        elif angle <= 335:
+            return (1, 1)
+        else:
+            return (0, 1)
 
     # --------------------------
     # Управление движением
