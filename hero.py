@@ -156,6 +156,22 @@ class Hero:
         if self.mode:
             self.hero.setZ( self.hero.getZ() - 1 )
 
+    def changeMode(self):
+        if self.mode:
+            self.mode = False
+        else:
+            self.mode = True
+
+    def try_move(self, angle):
+        pos = self.look_at(angle)
+        if self.land.isEmpty(pos):
+            pos = self.land.findHighestEmpty(pos)
+            self.hero.setPos(pos)
+        else:
+            pos = pos[0], pos[1], pos[2] + 1
+            if self.land.isEmpty(pos):
+                self.hero.setPos(pos)
+                
     # --------------------------
     # События клавиш
     # --------------------------
@@ -183,3 +199,5 @@ class Hero:
 
         # Переключение вида камеры
         base.accept(key_switch_camera, self.changeView)
+        # Переключение игрового режима
+        base.accept(key_switch_mode, self.changeMode)
