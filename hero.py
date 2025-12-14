@@ -146,7 +146,7 @@ class Hero():
        self.move_to(angle)
 
 
- def accept_events(self):
+   def accept_events(self):
        base.accept(key_turn_left, self.turn_left)
        base.accept(key_turn_left + '-repeat', self.turn_left)
        base.accept(key_turn_right, self.turn_right)
