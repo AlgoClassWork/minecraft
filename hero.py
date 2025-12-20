@@ -171,23 +171,7 @@ class Hero:
             pos = pos[0], pos[1], pos[2] + 1
             if self.land.isEmpty(pos):
                 self.hero.setPos(pos)
-
-    def build(self):
-        angle = self.hero.getH() % 360
-        pos = self.look_at(angle)
-        if self.mode:
-            self.land.addBlock(pos)
-        else:
-            self.land.buildBlock(pos)
-
-    def destroy(self):
-        angle = self.hero.getH() % 360
-        pos = self.look_at(angle)
-        if self.mode:
-            self.land.delBlock(pos)
-        else:
-            self.land.destroyBlock(pos)
-                
+           
     # --------------------------
     # События клавиш
     # --------------------------
@@ -212,9 +196,6 @@ class Hero:
         base.accept(key_up + '-repeat', self.up)
         base.accept(key_down, self.down)
         base.accept(key_down + '-repeat', self.down)
-
-        base.accept(key_build, self.build)
-        base.accept(key_destroy, self.destroy)
 
         # Переключение вида камеры
         base.accept(key_switch_camera, self.changeView)
