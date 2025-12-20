@@ -186,7 +186,7 @@ class Hero:
         if self.mode:
             self.land.delBlock(pos)
         else:
-            pass
+            self.land.destroyBlock(pos)
 
     # --------------------------
     # События клавиш
