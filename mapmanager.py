@@ -39,7 +39,7 @@ class Mapmanager:
         block.setTexture(loader.loadTexture(self.texture))
         block.setPos(position)
         block.setColor(self.getColor(int(position[2])))
-        block.setTag("at", str(position))
+        block.setTag("at", str(position)) #at361
         block.reparentTo(self.land)
 
     def clear(self):
@@ -86,4 +86,21 @@ class Mapmanager:
         while not self.isEmpty((x, y, z)):
             z += 1
         return (x, y, z)
+    
+    def buildBlock(self, pos):
+        x, y, z = pos
+        new = self.findHighestEmpty(pos)
+        if new[2] <= z + 1:
+            self.addBlock(new)
+
+    def delBlock(self, pos):
+        blocks = self.findBlocks(pos)
+        for block in blocks:
+            block.removeNode()
+
+    def destroyBlock(self, pos):
+        x, y, z = self.findHighestEmpty(pos)
+        pos = x, y, z -1
+        for block in self.findBlocks(pos):
+            block.removeNode()
 
